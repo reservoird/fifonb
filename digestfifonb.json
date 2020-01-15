@@ -1,5 +1,5 @@
 {
-  "name": "fwdfifo",
+  "name": "fwdfifonb",
   "sleepDuration": "1ms",
   "capacity": 1000
 }

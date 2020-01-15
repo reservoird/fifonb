@@ -87,7 +87,7 @@ func (o *Fifo) Put(item interface{}) error {
 	select {
 	case o.queue <- item:
 	default:
-		return fmt.Errorf("fifo pull")
+		return fmt.Errorf("fifo full")
 	}
 	return nil
 }
@@ -100,12 +100,12 @@ func (o *Fifo) Get() (interface{}, error) {
 	select {
 	case item, ok := <-o.queue:
 		if ok == false {
-			return nil, fmt.Errorf("fifo error")
+			return nil, fmt.Errorf("fifo is closed")
 		}
 		atomic.AddUint64(&o.stats.MessagesSent, 1)
 		return item, nil
 	default:
-		return nil, fmt.Errorf("fifo empty")
+		return nil, nil // fifo is empty not an error
 	}
 }
 

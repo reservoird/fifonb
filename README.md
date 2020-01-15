@@ -1,2 +1,3 @@
 # fifonb
-queue for reservoird
+
+non-blocking fifo for reservoird queue

@@ -1,0 +1,6 @@
+{
+  "name": "stdinfifo",
+  "sleepDuration": "1ms",
+  "capacity": 1000
+}
+

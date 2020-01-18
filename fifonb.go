@@ -102,7 +102,7 @@ func (o *Fifo) Get() (interface{}, error) {
 	select {
 	case item, ok := <-o.queue:
 		if ok == false {
-			return nil, fmt.Errorf("fifo is closed")
+			return nil, nil
 		}
 		atomic.AddUint64(&o.stats.MessagesSent, 1)
 		return item, nil
